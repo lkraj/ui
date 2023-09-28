@@ -122,7 +122,7 @@ export default function App() {
       right="2rem"
       bottom="2rem"
       zIndex={99}
-      color="white"
+      color="black"
       sx={{ cursor: "pointer" }}
       onClick={handleConfiguratorOpen}
     >
@@ -165,7 +165,7 @@ export default function App() {
           <Sidenav
             color={sidenavColor}
             brand=""
-            brandName="VISION UI FREE"
+            brandName="WACKADOO"
             routes={routes}
             onMouseEnter={handleOnMouseEnter}
             onMouseLeave={handleOnMouseLeave}

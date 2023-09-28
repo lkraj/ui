@@ -28,11 +28,11 @@ export default {
   },
 
   sidenav: {
-    button: "#fa949a",
+    button: "#f0edd8",
   },
 
   text: {
-    main: "#a0aec0",
+    main: "#000000",
     focus: "#ffffff",
   },
 
@@ -129,8 +129,8 @@ export default {
   },
 
   dark: {
-    main: "#344767",
-    focus: "#121241",
+    main: "#000000",
+    focus: "#e483b6",
     body: "#030c1d",
   },
 
@@ -143,20 +143,20 @@ export default {
 
     sidenav: {
       deg: "127.09",
-      main: "rgba(6, 11, 40, 0.94) 19.41%",
-      state: "rgba(10, 14, 35, 0.49) 76.65%",
+      main: "rgba(220,176,193,255) 19.41%",
+      state: "rgba(242,213,181,255) 76.65%",
     },
 
     borderLight: {
       angle: "94.43% 69.43% at 50% 50%",
       main: "#ffffff 0%",
-      state: "rgba(255, 255, 255, 0) 100%",
+      state: "rgba(237,213,187,255) 100%",
     },
 
     borderDark: {
       angle: "69.43% 69.43% at 50% 50%",
       main: "#ffffff 0%",
-      state: "rgba(255, 255, 255, 0) 100%",
+      state: "rgba(237,213,187,255) 100%",
     },
 
     cover: {
@@ -221,7 +221,7 @@ export default {
 
     logo: {
       deg: "97.89",
-      main: "#ffffff 70.67%",
+      main: "#000000 70.67%",
       state: "rgba(117, 122, 140, 0) 108.55%",
     },
 

@@ -60,7 +60,7 @@ export default styled(Drawer)(({ theme, ownerState }) => {
     }),
 
     [breakpoints.up("xl")]: {
-      boxShadow: transparentSidenav ? "none" : xxl,
+      boxShadow: xxl,
       marginBottom: transparentSidenav ? 0 : "inherit",
       left: "0",
       width: pxToRem(96),
@@ -77,14 +77,12 @@ export default styled(Drawer)(({ theme, ownerState }) => {
     "& .MuiDrawer-paper": {
       boxShadow: xxl,
       border: "none",
-      background: transparentSidenav
-      ? transparent.main
-      : linearGradient(
-            gradients.sidenav.main,
-            gradients.sidenav.state,
-            gradients.sidenav.deg
-          ),
-    backdropFilter: transparentSidenav ? "unset" : "blur(120px)",
+      background: linearGradient(
+        gradients.sidenav.main,
+        gradients.sidenav.state,
+        gradients.sidenav.deg
+      ),
+    // backdropFilter: transparentSidenav ? "unset" : "blur(120px)",
       ...(miniSidenav ? drawerCloseStyles() : drawerOpenStyles()),
     },
   };

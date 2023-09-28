@@ -127,7 +127,7 @@ function DashboardNavbar({ absolute, light, isMini }) {
       <NotificationItem
         color="text"
         image={
-          <Icon fontSize="small" sx={{ color: ({ palette: { white } }) => white.main }}>
+          <Icon fontSize="small" sx={{ color: ({ palette: { black } }) => black.main }}>
             payment
           </Icon>
         }
