@@ -18,7 +18,7 @@
 
 // Vision UI Dashboard React Base Styles
 import colors from "assets/theme/base/colors";
-import bgAdmin from "assets/images/body-background-w.jpg";
+import bgAdmin from "assets/images/body-background-w2.jpg";
 
 const { info, dark } = colors;
 export default {
