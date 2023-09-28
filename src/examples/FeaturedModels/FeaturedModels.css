@@ -1,0 +1,32 @@
+.featured-models {
+  padding: 20px;
+  overflow: hidden;
+}
+
+.cards-container {
+  display: flex;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.card {
+  flex: 0 0 auto;
+  margin-right: 20px;
+  /* Add other styles for the card */
+}
+
+/* Styles for the next/previous buttons */
+.next-button, .prev-button {
+  margin-top: 10px;
+  padding: 10px 15px;
+  background-color: #2D3748;  /* Theme's primary color */
+  color: #FFFFFF;             /* White text color */
+  border: none;
+  border-radius: 8px;         /* Rounded corners */
+  cursor: pointer;
+  transition: background-color 0.3s ease;      /* Smooth transition for hover effect */
+}
+
+.next-button:hover, .prev-button:hover {
+  background-color: #4A5568;  /* Theme's secondary color on hover */
+}
