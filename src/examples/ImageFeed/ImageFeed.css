@@ -1,0 +1,29 @@
+.image-card {
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    padding-bottom: 75%;  /* 3/4 aspect ratio */
+    position: relative;
+}
+
+.modal-image {
+    max-width: 90%;
+    max-height: 90%;
+    display: block;
+}
+
+.slider-container {
+    margin-bottom: 20px;
+}
+
+.grid-item {
+    width: 200px;
+    height: auto;
+}
+
+.modal-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
