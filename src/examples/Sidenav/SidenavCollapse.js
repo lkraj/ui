@@ -60,7 +60,7 @@ function SidenavCollapse({ color, icon, name, children, active, noCollapse, open
 
           <ListItemText
             primary={name}
-            sx={(theme) => collapseText(theme, { miniSidenav, transparentSidenav, active })}
+            sx={(theme) => collapseText(theme, { miniSidenav, transparentSidenav, active, color: theme.palette.black.main })}
           />
         </VuiBox>
       </ListItem>

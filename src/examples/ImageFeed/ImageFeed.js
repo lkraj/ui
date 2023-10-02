@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Modal, Slider } from "@mui/material";
-// import './ImageFeed.css';
 
 import image1 from '../../assets/images/Image (1).jpeg';
 import image2 from '../../assets/images/Image (1).jpg';
@@ -9,8 +8,8 @@ import image4 from '../../assets/images/Image (2).png';
 import image5 from '../../assets/images/Image (3).png';
 
 const ImageFeed = () => {
-  const [images, setImages] = useState([image1, image2,image3,image4,image5,image3,image4,image5]);
-  const [numColumns, setNumColumns] = useState(3);
+  const [images, setImages] = useState([image1, image2, image3, image4, image5, image3, image4, image5]);
+  const [numColumns, setNumColumns] = useState(4);
   const [openModal, setOpenModal] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
   const containerRef = useRef(null);
@@ -26,9 +25,15 @@ const ImageFeed = () => {
       }
     };
 
-    containerRef.current.addEventListener('scroll', handleScroll);
+    const currentContainer = containerRef.current;
+    if (currentContainer) {
+      currentContainer.addEventListener('scroll', handleScroll);
+    }
+
     return () => {
-      containerRef.current.removeEventListener('scroll', handleScroll);
+      if (currentContainer) {
+        currentContainer.removeEventListener('scroll', handleScroll);
+      }
     };
   }, [images]);
 
@@ -55,7 +60,7 @@ const ImageFeed = () => {
   return (
     <div>
       <Slider
-        defaultValue={3}
+        defaultValue={4}
         step={1}
         marks
         min={1}
@@ -72,7 +77,7 @@ const ImageFeed = () => {
                 <img
                   src={image}
                   alt="Image"
-                  style={{ width: '100%', height: 'auto', display: 'block' }}
+                  style={{ width: '100%', height: 'auto', display: 'block', borderRadius: '5px' }}
                   onClick={() => handleImageClick(image)}
                 />
               </div>

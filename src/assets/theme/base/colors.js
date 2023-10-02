@@ -33,7 +33,7 @@ export default {
 
   text: {
     main: "#000000",
-    focus: "#ffffff",
+    focus: "#000000",
   },
 
   transparent: {
@@ -41,8 +41,9 @@ export default {
   },
 
   white: {
-    main: "#ffffff",
-    focus: "#ffffff",
+    light: "#141414",
+    main: "#000000",
+    focus: "#000000",
   },
 
   brand: {
@@ -53,11 +54,10 @@ export default {
   black: {
     light: "#141414",
     main: "#000000",
-    focus: "#000000",
-  },
+    focus: "#000000",},
 
   primary: {
-    main: "#4318ff",
+    main: "#a7c1fe",
     focus: "#9f7aea",
   },
 
@@ -130,8 +130,8 @@ export default {
 
   dark: {
     main: "#000000",
-    focus: "#e483b6",
-    body: "#030c1d",
+    focus: "#000000",
+    body: "#d7cee0",
   },
 
   gradients: {
@@ -180,8 +180,8 @@ export default {
 
     card: {
       deg: "127.09",
-      main: "rgba(6, 11, 40, 0.94) 19.41%",
-      state: "rgba(10, 14, 35, 0.49) 76.65%",
+      main: "rgba(216,224,224,255) 19.41%",
+      state: "rgba(232,204,200,255) 76.65%",
     },
 
     menu: {

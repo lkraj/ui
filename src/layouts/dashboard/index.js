@@ -76,7 +76,7 @@ function Dashboard() {
       <VuiBox mb={3}>
           <ImageFeed />
       </VuiBox>
-      <VuiBox py={3}>
+      {/* <VuiBox py={3}>
         <VuiBox mb={3}>
           <Grid container spacing={3}>
             <Grid item xs={12} md={6} xl={3}>
@@ -294,7 +294,7 @@ function Dashboard() {
           </Grid>
         </Grid>
       </VuiBox>
-      <Footer />
+      <Footer /> */}
     </DashboardLayout>
   );
 }

@@ -20,14 +20,15 @@ const FeaturedModelCard = ({ image, heading, text }) => {
       <Card 
         onClick={handleOpen}
         sx={{
-          height: "340px",
-          py: "32px",
-          backgroundImage: `url(${image})`,
-          backgroundSize: "cover",
-          backgroundPosition: "50%"
+          height: "280px",
+          width:"280px",
+          margin: "0 10px 20px 10px"
         }}
       >
-        <VuiBox height="100%" display="flex" flexDirection="column" justifyContent="space-between">
+        <VuiBox height="70%" width="100%">
+          <img src={image} alt={heading} style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: "" }} />
+        </VuiBox>
+        <VuiBox height="50%" display="flex" flexDirection="column" justifyContent="space-between">
           <VuiBox>
             <VuiTypography color="text" variant="button" fontWeight="regular" mb="12px">
               {heading}

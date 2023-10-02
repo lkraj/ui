@@ -35,7 +35,7 @@ import Configurator from "examples/Configurator";
 
 // Vision UI Dashboard React themes
 import theme from "assets/theme";
-import themeRTL from "assets/theme/theme-rtl";
+// import themeRTL from "assets/theme/theme-rtl";
 
 // RTL plugins
 import rtlPlugin from "stylis-plugin-rtl";
@@ -122,7 +122,7 @@ export default function App() {
       right="2rem"
       bottom="2rem"
       zIndex={99}
-      color="black"
+      color="text"
       sx={{ cursor: "pointer" }}
       onClick={handleConfiguratorOpen}
     >
@@ -141,7 +141,7 @@ export default function App() {
             <Sidenav
               color={sidenavColor}
               brand=""
-              brandName="VISION UI FREE"
+              brandName="Wackadoo"
               routes={routes}
               onMouseEnter={handleOnMouseEnter}
               onMouseLeave={handleOnMouseLeave}

@@ -19,7 +19,7 @@
 .next-button, .prev-button {
   margin-top: 10px;
   padding: 10px 15px;
-  background-color: #2D3748;  /* Theme's primary color */
+  background-color: #000000;  /* Theme's primary color */
   color: #FFFFFF;             /* White text color */
   border: none;
   border-radius: 8px;         /* Rounded corners */

@@ -1,25 +1,51 @@
 import React, { useState } from 'react';
 import FeaturedModelCard from '../Cards/FeaturedModelCard/FeaturedModelCard';
 import './FeaturedModels.css';
-
+import image1 from '../../assets/images/Image (1).jpeg';
+import image7 from '../../assets/images/Image (7).jpg';
+import image8 from '../../assets/images/Image (8).jpg';
 const FeaturedModels = () => {
   const modelsData = [
     {
-      image: 'path_to_image1.jpg',
+      image: image7,
       heading: 'Model Name 1',
       text: 'Model description 1'
     },
     {
-      image: 'path_to_image2.jpg',
+      image: image8,
       heading: 'Model Name 2',
       text: 'Model description 2'
     },
-    
+    {
+      image: image1,
+      heading: 'Model Name 2',
+      text: 'Model description 2'
+    },
+    {
+      image: image1,
+      heading: 'Model Name 3',
+      text: 'Model description 2'
+    },
+    {
+      image: image1,
+      heading: 'Model Name 3',
+      text: 'Model description 2'
+    },
+    {
+      image: image1,
+      heading: 'Model Name 4',
+      text: 'Model description 2'
+    },
+    {
+      image: image1,
+      heading: 'Model Name 4',
+      text: 'Model description 2'
+    },
     // ... add other model data here
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
-  const cardsToDisplay = 3; // Number of cards to display at once
+  const cardsToDisplay = 5; // Number of cards to display at once
 
   const displayedCards = modelsData.slice(currentIndex, currentIndex + cardsToDisplay);
 
