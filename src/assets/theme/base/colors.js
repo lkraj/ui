@@ -226,8 +226,8 @@ export default {
     },
 
     info: {
-      main: "#0075ff",
-      state: "#21d4fd",
+      main: "#b5c7ef",
+      state: "#e580b8",
     },
 
     success: {
@@ -427,7 +427,7 @@ export default {
   },
 
   sliderColors: {
-    thumb: { borderColor: "#d9d9d9" },
+    thumb: { borderColor: "#290000" },
   },
 
   circleSliderColors: {

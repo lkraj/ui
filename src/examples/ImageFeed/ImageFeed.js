@@ -6,10 +6,11 @@ import image2 from '../../assets/images/Image (1).jpg';
 import image3 from '../../assets/images/Image (1).png';
 import image4 from '../../assets/images/Image (2).png';
 import image5 from '../../assets/images/Image (3).png';
+import './ImageFeed.css';
 
-const ImageFeed = () => {
-  const [images, setImages] = useState([image1, image2, image3, image4, image5, image3, image4, image5]);
-  const [numColumns, setNumColumns] = useState(4);
+const ImageFeed = ({ hideScrollbar = false }) => {
+  const [images, setImages] = useState([image1, image2, image3, image4, image5, image3, image4, image5, image1, image2, image3, image4, image5, image3, image4, image5,image1, image2, image3, image4, image5, image3, image4, image5]);
+  const [numColumns, setNumColumns] = useState(5);
   const [openModal, setOpenModal] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
   const containerRef = useRef(null);
@@ -54,22 +55,24 @@ const ImageFeed = () => {
     }
     return chunks;
   };
+  
 
   const imageChunks = chunkArray(images, Math.ceil(images.length / numColumns));
 
   return (
     <div>
       <Slider
-        defaultValue={4}
+        defaultValue={5}
         step={1}
         marks
         min={1}
         max={5}
         valueLabelDisplay="auto"
         onChange={(event, newValue) => setNumColumns(newValue)}
+        
       />
 
-      <div ref={containerRef} style={{ display: 'flex', gap: '16px', height: '80vh', overflowY: 'scroll' }}>
+      <div className={`image-feed-container ${hideScrollbar ? 'hide-scrollbar' : ''}`} ref={containerRef} style={{ display: 'flex', gap: '16px', height: '80vh', overflowY: 'scroll' }}>
         {imageChunks.map((chunk, chunkIndex) => (
           <div key={chunkIndex} style={{ flex: 1 }}>
             {chunk.map((image, index) => (

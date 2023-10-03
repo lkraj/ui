@@ -23,12 +23,13 @@ import Card from "@mui/material/Card";
 import VuiBox from "components/VuiBox";
 import VuiTypography from "components/VuiTypography";
 
+
 // Vision UI Dashboard React example components
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
 import DashboardNavbar from "examples/Navbars/DashboardNavbar";
 import Footer from "examples/Footer";
 import Table from "examples/Tables/Table";
-
+import ImageFeed from "examples/ImageFeed/ImageFeed";
 // Data
 import authorsTableData from "layouts/tables/data/authorsTableData";
 import projectsTableData from "layouts/tables/data/projectsTableData";
@@ -42,7 +43,8 @@ function Tables() {
       <DashboardNavbar />
       <VuiBox py={3}>
         <VuiBox mb={3}>
-          <Card>
+        <ImageFeed hideScrollbar={true} />
+          {/* <Card>
             <VuiBox display="flex" justifyContent="space-between" alignItems="center" mb="22px">
               <VuiTypography variant="lg" color="white">
                 Authors table
@@ -64,9 +66,9 @@ function Tables() {
             >
               <Table columns={columns} rows={rows} />
             </VuiBox>
-          </Card>
+          </Card> */}
         </VuiBox>
-        <Card>
+        {/* <Card>
           <VuiBox display="flex" justifyContent="space-between" alignItems="center">
             <VuiTypography variant="lg" color="white">
               Projects table
@@ -88,9 +90,9 @@ function Tables() {
           >
             <Table columns={prCols} rows={prRows} />
           </VuiBox>
-        </Card>
+        </Card> */}
       </VuiBox>
-      <Footer />
+      {/* <Footer /> */}
     </DashboardLayout>
   );
 }

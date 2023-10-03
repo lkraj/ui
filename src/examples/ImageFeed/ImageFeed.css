@@ -5,6 +5,14 @@
     padding-bottom: 75%;  /* 3/4 aspect ratio */
     position: relative;
 }
+/* Add this to your ImageFeed.css or a global CSS file */
+.hide-scrollbar {
+    scrollbar-width: none; /* For Firefox */
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+    display: none; /* For Chrome, Safari, and Edge */
+}
 
 .modal-image {
     max-width: 90%;
