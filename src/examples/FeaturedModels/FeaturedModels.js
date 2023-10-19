@@ -4,6 +4,8 @@ import './FeaturedModels.css';
 import image1 from '../../assets/images/Image (1).jpeg';
 import image7 from '../../assets/images/Image (7).jpg';
 import image8 from '../../assets/images/Image (8).jpg';
+import image9 from '../../assets/images/Image (9).jpg';
+
 const FeaturedModels = () => {
   const modelsData = [
     {
@@ -17,7 +19,7 @@ const FeaturedModels = () => {
       text: 'Model description 2'
     },
     {
-      image: image1,
+      image: image9,
       heading: 'Model Name 2',
       text: 'Model description 2'
     },

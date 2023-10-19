@@ -54,7 +54,7 @@ function SignIn() {
       motto="THE VISION UI DASHBOARD"
       image={bgSignIn}
     >
-      <VuiBox component="form" role="form">
+      <VuiBox component="form" role="form" >
         <VuiBox mb={2}>
           <VuiBox mb={1} ml={0.5}>
             <VuiTypography component="label" variant="button" color="white" fontWeight="medium">

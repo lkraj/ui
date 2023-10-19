@@ -28,20 +28,22 @@ import MasterCard from "examples/Cards/MasterCard";
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
 import DashboardNavbar from "examples/Navbars/DashboardNavbar";
 import Footer from "examples/Footer";
-
+import AllModels from 'examples/AllModels/AllModels';
 // Billing page components
-import PaymentMethod from "layouts/billing/components/PaymentMethod";
-import Invoices from "layouts/billing/components/Invoices";
-import BillingInformation from "layouts/billing/components/BillingInformation";
-import Transactions from "layouts/billing/components/Transactions";
+import PaymentMethod from "layouts/models/components/PaymentMethod";
+import Invoices from "layouts/models/components/Invoices";
+import BillingInformation from "layouts/models/components/BillingInformation";
+import Transactions from "layouts/models/components/Transactions";
 import CreditBalance from "./components/CreditBalance";
 
-function Billing() {
+function Models() {
   return (
     <DashboardLayout>
       <DashboardNavbar />
-      <VuiBox mt={4}>
-        <VuiBox mb={1.5}>
+      <VuiBox mt={3}>
+        <VuiBox mb={3}>
+          <AllModels/>
+        {/* <VuiBox mb={1.5}>
           <Grid container spacing={3}>
             <Grid item xs={12} lg={7} xl={8}>
               <Grid container spacing={3}>
@@ -70,6 +72,7 @@ function Billing() {
               <Transactions />
             </Grid>
           </Grid>
+        </VuiBox> */}
         </VuiBox>
       </VuiBox>
       <Footer />
@@ -77,4 +80,4 @@ function Billing() {
   );
 }
 
-export default Billing;
+export default Models;

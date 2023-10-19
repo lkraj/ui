@@ -40,19 +40,22 @@
 
 // Vision UI Dashboard React layouts
 import Dashboard from "layouts/dashboard";
-import Tables from "layouts/tables";
-import Billing from "layouts/billing";
+import Feed from "layouts/feed";
 // import RTL from "layouts/rtl";
+import ImgGeneration from "layouts/Image Generation";
 import Profile from "layouts/profile";
 import SignIn from "layouts/authentication/sign-in";
 import SignUp from "layouts/authentication/sign-up";
-
+import Models from "layouts/models";
 // Vision UI Dashboard React icons
 import { IoRocketSharp } from "react-icons/io5";
 import { IoIosDocument } from "react-icons/io";
+import {BsFillGridFill} from "react-icons/bs";
+import {RiAiGenerate} from "react-icons/ri";
 import { BsFillPersonFill } from "react-icons/bs";
 import { IoBuild } from "react-icons/io5";
 import { BsCreditCardFill } from "react-icons/bs";
+import { IoMdCube } from "react-icons/io";
 import { IoStatsChart } from "react-icons/io5";
 import { IoHome } from "react-icons/io5";
 
@@ -70,18 +73,18 @@ const routes = [
     type: "collapse",
     name: "Feed",
     key: "Feed",
-    route: "/tables",
-    icon: <IoStatsChart size="15px" color="inherit" />,
-    component: Tables,
+    route: "/feed",
+    icon: <BsFillGridFill size="15px" color="inherit" />,
+    component: Feed,
     noCollapse: true,
   },
   {
     type: "collapse",
     name: "Models",
     key: "Models",
-    route: "/billing",
-    icon: <BsCreditCardFill size="15px" color="inherit" />,
-    component: Billing,
+    route: "/models",
+    icon: <IoMdCube size="15px" color="inherit" />,
+    component: Models,
     noCollapse: true,
   },
   { type: "title", title: "User Tools", key: "tools" },
@@ -89,9 +92,9 @@ const routes = [
     type: "collapse",
     name: "Image Generation",
     key: "Image Generation",
-    route: "/billing",
-    icon: <IoBuild size="15px" color="inherit" />,
-    component: Billing,
+    route: "/Image Generation",
+    icon: <RiAiGenerate size="15px" color="inherit" />,
+    component: ImgGeneration,
     noCollapse: true,
   },
   { type: "title", title: "Account Pages", key: "account-pages" },

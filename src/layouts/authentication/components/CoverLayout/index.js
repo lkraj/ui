@@ -66,12 +66,12 @@ function CoverLayout({
         }}
       />
       <VuiBox
-        height="100%"
+        height="95%"
         width="50vw"
         display={{ xs: "none", md: "block" }}
         position="absolute"
-        top={0}
-        left={0}
+        top={20}
+        left={20}
         sx={({ breakpoints }) => ({
           overflow: "hidden",
           [breakpoints.down("xl")]: {

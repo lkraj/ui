@@ -31,10 +31,10 @@ import Footer from "examples/Footer";
 import Table from "examples/Tables/Table";
 import ImageFeed from "examples/ImageFeed/ImageFeed";
 // Data
-import authorsTableData from "layouts/tables/data/authorsTableData";
-import projectsTableData from "layouts/tables/data/projectsTableData";
+import authorsTableData from "layouts/feed/data/authorsTableData";
+import projectsTableData from "layouts/feed/data/projectsTableData";
 
-function Tables() {
+function Feed() {
   const { columns, rows } = authorsTableData;
   const { columns: prCols, rows: prRows } = projectsTableData;
 
@@ -97,4 +97,4 @@ function Tables() {
   );
 }
 
-export default Tables;
+export default Feed;

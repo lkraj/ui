@@ -96,8 +96,8 @@ export default {
 
   // Other colors
   info: {
-    main: "#0075ff",
-    focus: "#3993fe",
+    main: "#edd9c0",
+    focus: "#edd9c0",
     charts: {
       100: "#2d8cfc",
       200: "#2370cc",
@@ -150,7 +150,7 @@ export default {
     borderLight: {
       angle: "94.43% 69.43% at 50% 50%",
       main: "#ffffff 0%",
-      state: "rgba(237,213,187,255) 100%",
+      state: "rgb(255, 153, 204,255) 100%",
     },
 
     borderDark: {
@@ -161,15 +161,15 @@ export default {
 
     cover: {
       deg: "159.02",
-      main: "#0f123b 14.25%",
-      state: "#090d2e 56.45%",
-      stateSecondary: "#020515 86.14%",
+      main: "#deb8c0 14.25%",
+      state: "#f9face 56.45%",
+      stateSecondary: "#deb8c0 86.14%",
     },
 
     cardDark: {
       deg: "126.97",
-      main: "rgba(6, 11, 40, 0.74) 28.26%",
-      state: "rgba(10, 14, 35, 0.71) 91.2%",
+      main: "rgba(218,116,192,255) 28.26%",
+      state: "rgba(172,192,242,255) 91.2%",
     },
 
     cardLight: {
@@ -419,7 +419,7 @@ export default {
   },
 
   inputColors: {
-    backgroundColor: "#0f1535",
+    backgroundColor: "transparent",
     borderColor: { main: "rgba(226, 232, 240, 0.3)", focus: "rgba(226, 232, 240, 0.6)" },
     boxShadow: "#628fc2",
     error: "#fd5c70",

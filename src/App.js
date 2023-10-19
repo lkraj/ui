@@ -28,6 +28,7 @@ import Icon from "@mui/material/Icon";
 
 // Vision UI Dashboard React components
 import VuiBox from "components/VuiBox";
+import Loading from "components/Loading";
 
 // Vision UI Dashboard React example components
 import Sidenav from "examples/Sidenav";
@@ -54,6 +55,8 @@ export default function App() {
   const [onMouseEnter, setOnMouseEnter] = useState(false);
   const [rtlCache, setRtlCache] = useState(null);
   const { pathname } = useLocation();
+  const [isLoading, setIsLoading] = useState(true);  // State for loading animation
+
 
   // Cache for the rtl
   useMemo(() => {
@@ -83,7 +86,14 @@ export default function App() {
 
   // Change the openConfigurator state
   const handleConfiguratorOpen = () => setOpenConfigurator(dispatch, !openConfigurator);
-
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 3000);
+  
+    return () => clearTimeout(timer);
+  }, []);
+  
   // Setting the dir attribute for the body element
   useEffect(() => {
     document.body.setAttribute("dir", direction);
@@ -131,6 +141,9 @@ export default function App() {
       </Icon>
     </VuiBox>
   );
+  if (isLoading) {
+    return <Loading />;
+  }
 
   return direction === "rtl" ? (
     <CacheProvider value={rtlCache}>
