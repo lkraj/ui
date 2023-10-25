@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import FeaturedModelCard from '../Cards/FeaturedModelCard/FeaturedModelCard';
 import './FeaturedModels.css';
-import image1 from '../../assets/images/Image (1).jpeg';
+import image1 from '../../assets/images/Image (5).png';
 import image7 from '../../assets/images/Image (7).jpg';
 import image8 from '../../assets/images/Image (8).jpg';
 import image9 from '../../assets/images/Image (9).jpg';
@@ -74,7 +74,7 @@ const FeaturedModels = () => {
 
   return (
     <div className="featured-models">
-      <h2>Featured Models</h2>
+      <h3>Featured Models</h3>
       <div className="cards-container">
         {modelCards}
       </div>

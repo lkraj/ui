@@ -47,8 +47,8 @@ export default {
   },
 
   brand: {
-    main: "#0075ff",
-    focus: "#0075ff",
+    main: "#b699d1",
+    focus: "#b699d1",
   },
 
   black: {
@@ -62,12 +62,12 @@ export default {
   },
 
   secondary: {
-    main: "#0f1535",
+    main: "#c4b9dd",
     focus: "#131538",
   },
 
   lightblue: {
-    main: "#4299e1",
+    main: "#e69cb3",//pink
     focus: "#4299e1",
   },
 
@@ -186,8 +186,8 @@ export default {
 
     menu: {
       deg: "126.97",
-      main: "#05153f 28.26%",
-      state: "#072561 91.2%",
+      main: "#f2cfb1 28.26%",
+      state: "#edd1dc 91.2%",
     },
 
     cardContent: {
@@ -225,9 +225,9 @@ export default {
       state: "rgba(117, 122, 140, 0) 108.55%",
     },
 
-    info: {
-      main: "#b5c7ef",
-      state: "#e580b8",
+    info: {//SIDENAVCOLOR
+      main: "#e4bebc",
+      state: "#beb9e4",
     },
 
     success: {
@@ -350,9 +350,9 @@ export default {
     },
 
     error: {
-      main: "#ea0606",
-      state: "#ff3d59",
-      border: "#f9b4b4",
+      main: "transparent",
+      state: "#f77e90",
+      border: "#f77e90",
     },
 
     light: {

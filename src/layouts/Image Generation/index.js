@@ -34,6 +34,7 @@ import ImageFeed from "examples/ImageFeed/ImageFeed";
 import ImgGen from "examples/ImgGen/ImgGen";
 import authorsTableData from "layouts/feed/data/authorsTableData";
 import projectsTableData from "layouts/feed/data/projectsTableData";
+import colors from 'assets/theme/base/colors.js';
 
 function ImgGeneration() {
   const { columns, rows } = authorsTableData;
@@ -42,11 +43,11 @@ function ImgGeneration() {
   return (
     <DashboardLayout>
       <DashboardNavbar />
-      <VuiBox py={3}>
+      
         <VuiBox mb={3}>
         <ImgGen></ImgGen>
       </VuiBox>
-      </VuiBox>
+      
       {/* <Footer /> */}
     </DashboardLayout>
   );

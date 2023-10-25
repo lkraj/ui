@@ -74,6 +74,7 @@ function Dashboard() {
           </Grid>
       </VuiBox>
       <VuiBox mb={3}>
+      <h3>Recent Creations</h3>
       <ImageFeed hideScrollbar={true} />
       </VuiBox>
       {/* <VuiBox py={3}>

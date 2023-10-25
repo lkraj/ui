@@ -16,13 +16,13 @@
 }
 .overlay-image {
   position: absolute;
-  /* top: 50%; */
+  /* top: 43%; */
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 1; /* Ensure the image is on top */
-  width: 100px; /* Adjust as needed */
+  width: 90px; /* Adjust as needed */
   height: auto;
 }
 .LineWobble {
-  z-index: 0;
+  z-index: 1;
 }
