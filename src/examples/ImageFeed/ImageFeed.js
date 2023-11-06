@@ -1,6 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Modal, Slider } from "@mui/material";
-
+import VuiBox from 'components/VuiBox';
+import VuiInput from 'components/VuiInput';
+import VuiButton from 'components/VuiButton';
+import VuiSwitch from 'components/VuiSwitch';
 import image1 from '../../assets/images/Image (1).jpeg';
 import image2 from '../../assets/images/Image (1).jpg';
 import image3 from '../../assets/images/Image (1).png';
@@ -9,7 +12,7 @@ import image5 from '../../assets/images/Image (3).png';
 import './ImageFeed.css';
 
 const ImageFeed = ({ hideScrollbar = false }) => {
-  const [images, setImages] = useState([image1, image2, image3, image4, image5, image3, image4, image5, image1, image2, image3, image4, image5, image3, image4, image5,image1, image2, image3, image4, image5, image3, image4, image5]);
+  const [images, setImages] = useState([image1, image2, image3, image4, image5]);
   const [numColumns, setNumColumns] = useState(5);
   const [openModal, setOpenModal] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
@@ -21,7 +24,7 @@ const ImageFeed = ({ hideScrollbar = false }) => {
         const { scrollTop, scrollHeight, clientHeight } = containerRef.current;
         if (scrollTop + clientHeight >= scrollHeight) {
           // User has scrolled to the bottom, load more images
-          setImages(prevImages => [...prevImages, ...images]); // Duplicate the images for demonstration
+          setImages(prevImages => [...prevImages, ...prevImages.slice(0, numColumns)]); // Load more images
         }
       }
     };
@@ -36,7 +39,7 @@ const ImageFeed = ({ hideScrollbar = false }) => {
         currentContainer.removeEventListener('scroll', handleScroll);
       }
     };
-  }, [images]);
+  }, [images, numColumns]);
 
   const handleImageClick = (image) => {
     setSelectedImage(image);
@@ -55,7 +58,6 @@ const ImageFeed = ({ hideScrollbar = false }) => {
     }
     return chunks;
   };
-  
 
   const imageChunks = chunkArray(images, Math.ceil(images.length / numColumns));
 
@@ -69,30 +71,48 @@ const ImageFeed = ({ hideScrollbar = false }) => {
         max={5}
         valueLabelDisplay="auto"
         onChange={(event, newValue) => setNumColumns(newValue)}
-        
       />
 
-      <div className={`image-feed-container ${hideScrollbar ? 'hide-scrollbar' : ''}`} ref={containerRef} style={{ display: 'flex', gap: '16px', height: '80vh', overflowY: 'scroll' }}>
+      <VuiBox className={`image-feed-container ${hideScrollbar ? 'hide-scrollbar' : ''}`} ref={containerRef} sx={{ display: 'flex', gap: '16px', height: '80vh', overflowY: 'scroll' }}>
         {imageChunks.map((chunk, chunkIndex) => (
-          <div key={chunkIndex} style={{ flex: 1 }}>
+          <VuiBox key={chunkIndex} sx={{ flex: 1 }}>
             {chunk.map((image, index) => (
-              <div key={index} style={{ marginBottom: '16px' }}>
+              <VuiBox key={index} sx={{ mb: '16px' }}>
                 <img
                   src={image}
                   alt="Image"
                   style={{ width: '100%', height: 'auto', display: 'block', borderRadius: '5px' }}
                   onClick={() => handleImageClick(image)}
                 />
-              </div>
+              </VuiBox>
             ))}
-          </div>
+          </VuiBox>
         ))}
-      </div>
+      </VuiBox>
 
-      <Modal open={openModal} onClose={handleCloseModal}>
-        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }}>
-          <img src={selectedImage} alt="Selected" style={{ maxWidth: '90%', maxHeight: '90%' }} />
-        </div>
+      <Modal
+        open={openModal}
+        onClose={handleCloseModal}
+        aria-labelledby="image-modal-title"
+        aria-describedby="image-modal-description"
+      >
+        <VuiBox sx={{
+          position: 'fixed',
+          top: '50%',
+          left: '50%',
+          transform: 'translate(-50%, -50%)',
+          bgcolor: 'background.paper',
+          boxShadow: 24,
+          p: 4,
+          borderRadius: '8px',
+          outline: 'none'
+        }}>
+          <img
+            src={selectedImage}
+            alt="Selected"
+            style={{ maxWidth: '100%', maxHeight: '80vh', display: 'block', borderRadius: '5px' }}
+          />
+        </VuiBox>
       </Modal>
     </div>
   );

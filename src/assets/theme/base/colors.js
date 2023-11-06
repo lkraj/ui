@@ -70,7 +70,7 @@ export default {
     main: "#e69cb3",//pink
     focus: "#4299e1",
   },
-
+ 
   orange: {
     main: "#f6ad55",
     focus: "#f6ad55",
@@ -146,7 +146,11 @@ export default {
       main: "rgba(220,176,193,255) 19.41%",
       state: "rgba(242,213,181,255) 76.65%",
     },
-
+    pink:{
+      deg: "123.09",
+      main: "#c9839e",
+      state: "#ffbf80 76.65%",
+    },
     borderLight: {
       angle: "94.43% 69.43% at 50% 50%",
       main: "#ffffff 0%",
