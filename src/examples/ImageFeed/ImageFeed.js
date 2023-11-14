@@ -11,12 +11,20 @@ import image4 from '../../assets/images/Image (2).png';
 import image5 from '../../assets/images/Image (3).png';
 import './ImageFeed.css';
 
+const imageTexts = {
+  image1: 'Image 1 Description',
+  image2: 'Image 2 Description',
+  // ... other image texts
+};
+
+
 const ImageFeed = ({ hideScrollbar = false }) => {
   const [images, setImages] = useState([image1, image2, image3, image4, image5]);
   const [numColumns, setNumColumns] = useState(5);
   const [openModal, setOpenModal] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
   const containerRef = useRef(null);
+  const [hoverText, setHoverText] = useState("Default hover text");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -41,9 +49,10 @@ const ImageFeed = ({ hideScrollbar = false }) => {
     };
   }, [images, numColumns]);
 
-  const handleImageClick = (image) => {
+  const handleImageClick = (image,text) => {
     setSelectedImage(image);
     setOpenModal(true);
+    setHoverText(text);
   };
 
   const handleCloseModal = () => {
@@ -73,20 +82,20 @@ const ImageFeed = ({ hideScrollbar = false }) => {
         onChange={(event, newValue) => setNumColumns(newValue)}
       />
 
-      <VuiBox className={`image-feed-container ${hideScrollbar ? 'hide-scrollbar' : ''}`} ref={containerRef} sx={{ display: 'flex', gap: '16px', height: '80vh', overflowY: 'scroll' }}>
-        {imageChunks.map((chunk, chunkIndex) => (
-          <VuiBox key={chunkIndex} sx={{ flex: 1 }}>
-            {chunk.map((image, index) => (
-              <VuiBox key={index} sx={{ mb: '16px' }}>
-                <img
-                  src={image}
-                  alt="Image"
-                  style={{ width: '100%', height: 'auto', display: 'block', borderRadius: '5px' }}
-                  onClick={() => handleImageClick(image)}
-                />
-              </VuiBox>
-            ))}
-          </VuiBox>
+<VuiBox className={`image-feed-container ${hideScrollbar ? 'hide-scrollbar' : ''}`} ref={containerRef} sx={{ display: 'flex', gap: '16px', height: '80vh', overflowY: 'scroll' }}>
+{imageChunks.map((chunk, chunkIndex) => (
+      <VuiBox key={chunkIndex} sx={{ flex: 1 }}>
+        {chunk.map((image, index) => (
+          <div className="image-container" key={index} onClick={() => handleImageClick(image, "Your specific text for this image")}>
+            <img
+              src={image}
+              alt="Image"
+              style={{ width: '100%', height: 'auto', display: 'block', borderRadius: '5px' }}
+            />
+            <div className="image-text">{hoverText}</div>
+          </div>
+        ))}
+      </VuiBox>
         ))}
       </VuiBox>
 
@@ -112,6 +121,12 @@ const ImageFeed = ({ hideScrollbar = false }) => {
             alt="Selected"
             style={{ maxWidth: '100%', maxHeight: '80vh', display: 'block', borderRadius: '5px' }}
           />
+          {hoverText && (
+            <VuiBox sx={{ mt: 2 }}>
+              <h2>Prompt</h2>
+              <p>{hoverText}</p>
+            </VuiBox>
+          )}
         </VuiBox>
       </Modal>
     </div>

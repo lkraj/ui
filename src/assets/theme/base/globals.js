@@ -24,7 +24,8 @@ const { info, dark } = colors;
 export default {
   html: {
     scrollBehavior: "smooth",
-    background: dark.body,
+    background: `url(${bgAdmin})`,
+    backgroundSize: "cover",
   },
   body: {
     background: `url(${bgAdmin})`,

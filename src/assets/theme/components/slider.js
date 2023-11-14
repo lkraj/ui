@@ -39,7 +39,7 @@ export default {
       },
 
       "& .MuiSlider-valueLabel": {
-        color: black.main,
+        color: light.main,
       },
     },
 

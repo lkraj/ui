@@ -11,15 +11,21 @@
   import ImageFeed from "examples/ImageFeed/ImageFeed";
   import ImageGenerationHistory from './ImageGenerationHistory';
   import { useVisionUIController, setMiniSidenav, setOpenConfigurator } from "context";
+  import backgroundimg from "../../assets/images/upload-image.png";
   import image1 from '../../assets/images/Image (1).jpeg';
   import image7 from '../../assets/images/Image (7).jpg';
   import image8 from '../../assets/images/Image (8).jpg';
   import image9 from '../../assets/images/Image (9).jpg';
+  import { FaQuestionCircle } from "react-icons/fa";
+  import { IconButton, Badge,Tooltip } from '@mui/material';
+  
   const ImgGen = () => {
       const [controller, dispatch] = useVisionUIController();
       const {sidenavColor } = controller;
       const [open, setOpen] = useState(false);
       const [prompt, setPrompt] = useState('');
+      const [imageUrl, setImageUrl] = useState(null);
+      const [history, setHistory] = useState([]);
       const [selectedModel, setSelectedModel] = useState('');
       const [selectedImageNumber, setSelectedImageNumber] = useState(null);
       const [numImages, setNumImages] = useState(1);
@@ -40,6 +46,31 @@
         }
         setShowAlert(false);
       };
+
+      const handleGenerateClick = async () => {
+        console.log(prompt);
+        try {
+            const response = await fetch('http://127.0.0.1:8000/generate-art', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ prompt: prompt })
+            });
+    
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+    
+            const data = await response.json();
+            // setImageUrl(data.image_url); // Update the state with the image URL
+            setHistory([...history, { prompt: prompt, images: [data.image_url] }]);
+        } catch (error) {
+            console.error('There was a problem with the fetch operation:', error);
+        }
+    };
+    
+      
     
       const handleControlNetToggle = () => {
         if (!uploadedImage) {
@@ -50,8 +81,8 @@
       };
       const sampleHistory = [
         {
-          prompt: "Sunset over the mountains",
-          images: [image1,image7,image8,image7]
+          prompt:{prompt},
+          images: [{imageUrl}]
         },
         {
           prompt: "A serene lakeside view",
@@ -132,7 +163,7 @@
         // backgroundColor: 'black',
         padding: '20px',
         borderRadius: '5px',
-        width: '180px',
+        width: '190px',
         gap: '10px',
 
       },
@@ -156,12 +187,12 @@
         alignItems: 'center',
         justifyContent: 'center',
         color: 'white',
-        border: '1px solid #E1C1C6',
+        border: '1px solid transparent',
         borderRadius: '5px',
         cursor: 'pointer'
       },
       selectedGridItem: {
-        backgroundColor: 'purple',
+        
         border: '2px solid black'
       },
 
@@ -198,7 +229,7 @@
                 onChange={(e) => setPrompt(e.target.value)}
                 placeholder="Enter your prompt"
               />
-              <VuiButton variant="gradient" color={sidenavColor} style={{ backgroundColor: colors.primary.main }} onClick={() => { /* Generate logic here */ }}>
+              <VuiButton variant="gradient" color={sidenavColor} style={{ backgroundColor: colors.primary.main }} onClick={handleGenerateClick}>
                 Generate
               </VuiButton>
               <VuiTypography
@@ -239,31 +270,53 @@
                     </option>
               </select>
               </VuiBox>
-              <VuiButton variant="gradient" color={sidenavColor} style={{ backgroundColor: colors.primary.main }} onClick={() => setOpen(!open)}>
+              {/* <VuiButton variant="gradient" color={sidenavColor} style={{ backgroundColor: colors.primary.main }} onClick={() => setOpen(!open)}>
                 More settings
-              </VuiButton>
+              </VuiButton> */}
             </VuiBox>
-            <Collapse in={open} >
+            {/* <Collapse in={open} > */}
               <VuiBox display="flex" flexDirection="row" gap="35px">
-            <VuiBox variant="button" style={styles.sectionMargin} sx={({ palette: { gradients, white }, functions: { linearGradient } }) => ({
+            <Card variant="button" style={styles.sectionMargin} sx={({ palette: { gradients, white }, functions: { radialGradient } }) => ({
               
-               background: linearGradient(
-                  colors.lightblue.main,
-                 "transparent",
-                 175
+               background: radialGradient(
+                "69%",
+                colors.lightblue.main ,
+                "#e4bebc",
+                
+                 
                ),
-              borderColor:"#00000",
-              borderRadius: '35px' })}>
+            
+              borderRadius: '25px',
+              })}>
               
               <VuiBox style={styles.container}>
+              
               <VuiTypography
-                      variant="button"
-                      fontWeight="regular"
-                      color= "white"
-                      >
-                    Number of Images
-                    </VuiTypography>
-                  
+  variant="button"
+  fontWeight="regular"
+  color="white"
+  style={{ 
+    display: 'inline-flex', 
+    
+    alignItems: 'center', 
+    marginRight: '0px' // Adjust space between text and icon if necessary
+  }}
+>
+  Number of Images
+  <Tooltip title="Delete">
+  <IconButton 
+    style={{ 
+      
+      padding: '0px 0px 0px 10px', 
+      display: 'inline-flex', 
+      verticalAlign: 'bottom' // This aligns the icon with the baseline of the text
+    }}
+  >
+   <FaQuestionCircle size="15px" />
+  </IconButton>
+</Tooltip>
+</VuiTypography>
+
                   <VuiBox style={styles.grid}>
                     {imageOptions.map((option, index) => (
                       <VuiBox 
@@ -276,8 +329,8 @@
               
                           background: linearGradient(
                             "#e4bebc",
-                            "#beb9e4",
-                            123
+                            "#9d97d1",
+                            137
                           ),
                           borderRadius: '15px' 
                         })}
@@ -319,25 +372,33 @@
                 />
 
               </VuiBox>
-              </VuiBox>
-              <VuiBox variant="button" style={styles.sectionMargin} sx={({ palette: { gradients, white }, functions: { linearGradient } }) => ({
+              </Card>
+              <Card variant="button" style={styles.sectionMargin} sx={({ palette: { gradients, white }, functions: { linearGradient } }) => ({
               background: linearGradient(
                  colors.lightblue.main ,
                 "transparent",
-                175
+                75
               ),
-             borderColor:"#00000",
-             borderRadius: '35px' })}>
+             borderColor:"#fffff",
+             borderRadius: '25px' })}>
               <VuiBox style={styles.container}>
-                
+            
                 <input
                   type="file"
                   ref={imageInputRef}
                   onChange={handleImageUpload}
                   style={{ display: 'none' }} 
                 />
-                <VuiButton variant="gradient" color={sidenavColor} onClick={() => imageInputRef.current.click()}>
+                <VuiButton variant="gradient"  color={sidenavColor} onClick={() => imageInputRef.current.click()} sx={{
+                  backgroundImage: `url(${backgroundimg})`,
+                  backgroundSize: 'cover',
+                  backgroundRepeat: 'no-repeat',
+                  height: "100%",
+                }}>
+                  <VuiTypography color="white" variant="button" fontWeight="medium"  mb="1px">
                   Upload Image
+            </VuiTypography>
+                  
                 </VuiButton>
     
                 {/* Display uploaded image */}
@@ -392,10 +453,12 @@
                   </VuiBox>
                 )}
               </VuiBox>
+            </Card>
+            
             </VuiBox>
-            </VuiBox>
-            </Collapse>
-            <ImageGenerationHistory history={sampleHistory} />
+            
+            {/* </Collapse> */}
+            <ImageGenerationHistory history={history} />
           </main>
           </VuiBox>
           
