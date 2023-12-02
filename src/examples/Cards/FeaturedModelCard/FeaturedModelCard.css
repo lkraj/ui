@@ -1,10 +1,17 @@
+.card:hover {
+  transform: scale(1.03);
+  transition-duration: 0.5s;
+  opacity: 0.9
+  
+ 
+}
 .modal {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(220, 231, 243, 0.7);
+  background-color: rgba(226, 226, 226, 0.914);
   backdrop-filter: blur(5px);
   display: flex;
   justify-content: center;
@@ -13,7 +20,7 @@
 }
 
 .modal-content {
-  background-color: #c8afcf;
+  background-color: rgb(255, 252, 235);
   padding: 20px;
   border-radius: 8px;
   max-width: 1000px;
@@ -43,7 +50,7 @@
 }
 
 .modal-content::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: #b4b2b2;
 }
 
 .modal-content::-webkit-scrollbar-thumb {
@@ -59,10 +66,10 @@
 }
 
 .modal-top {
-  height: calc(40vh - 11px);
+  height: calc(50vh - 11px);
   display: flex;
-  flex-wrap: wrap; /* Allow content to wrap onto the next line on smaller screens */
-  justify-content: center;
+   /* Allow content to wrap onto the next line on smaller screens */
+  justify-content: flex-start;
   align-items: center;
   
 }
@@ -71,16 +78,11 @@
   /* ... existing styles ... */
 }
 
-.modal-image, .modal-text-content {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+
 .modal-image {
   height: 100%; /* Take up the full height of its parent (.modal-top) */
-  overflow: hidden; /* Hide any overflowing content */
-  
+   /* Hide any overflowing content */
+ 
 }
 /* 
 .model-header {
@@ -113,11 +115,21 @@
 } */
 
 .image-caption {
-  background-color: rgba(0,0,0,0.5);
-  padding: 20px;
-  border-radius: 8px;
-  color: #fff;
+  display: inline-block;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  margin-left: 30px;
+ 
+  
 }
+
+.modelcaption {
+
+ 
+  word-break: break-all;
+  width: 100px;
+} 
 
 .generate-btn {
   background-color: #f04e5d;
@@ -186,6 +198,11 @@
   grid-template-columns: repeat(4, 1fr);
   gap: 10px;
 } */
+.modal-image-feed-card .image-card {
+  width: 230px;
+  height: 230px;
+  /* Add any additional styling needed for the square appearance */
+}
 
 .image-item {
   width: 230px;
@@ -215,7 +232,8 @@
 
 /* Responsive styles for smaller devices */
 .modal-content {
-  background-color: transparent; /* Remove the purple background */
+  /* background-color: transparent;  */
+  /* Remove the purple background */
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
 }
 

@@ -1,20 +1,34 @@
+/* Apply general styles first */
 .models {
-    padding: 30px;
-    overflow: hidden;
-  }
-  .models h2 {
-    margin-bottom: 20px; /* Adjust this value to increase or decrease the space */
-  }
-  .cards-grid {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr); /* 5 cards in a row */
-    gap: 0px; /* Adjust the gap between cards as needed */
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+}
+
+.models h2 {
+  margin-bottom: 20px;
+}
+
+.cards-grid {
+  display: grid;
+  row-gap: 5px; /* Vertical gap */
+  column-gap: 5px;
+  width: calc(100% - 40px); /* Adjust width based on parent padding */
+  max-width: 1200px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  justify-content: center;
   
-  .card {
-    margin-right: 20px; /* You may adjust or remove this if the gap in the grid is sufficient */
-    /* Add other styles for the card if needed */
-  }
-  
-  /* Since there are no next/previous buttons in the Models component, we don't need the styles for them. */
-  
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+}
+
+.card-text {
+  word-break: break-word;
+}
+
+/* Then override with custom breakpoints */
+/* For extra small devices */

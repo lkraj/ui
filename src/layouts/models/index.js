@@ -75,7 +75,7 @@ function Models() {
         </VuiBox> */}
         </VuiBox>
       </VuiBox>
-      <Footer />
+      {/* <Footer /> */}
     </DashboardLayout>
   );
 }

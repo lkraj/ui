@@ -1,95 +1,30 @@
-.image-feed-container {
+.my-masonry-grid {
   display: flex;
-  gap: 16px;
-  height: 80vh;
-  overflow-y: scroll;
+  margin-left: -30px;
+  width: auto;
+}
+.my-masonry-grid_column {
+  padding-left: 10px;
+  background-clip: padding-box;
 }
 
-.image-card {
-  position: relative;
+.feed-image {
+  width: 100%;
+  margin-bottom: 5px;
   cursor: pointer;
   border-radius: 5px;
-  overflow: hidden;
 }
 
-.background-image {
-  width: 100%;
-  display: block;
-  object-fit: cover;
+.modal-box {
+  position: 'absolute';
+  top: '50%';
+  left: '50%';
+  transform: 'translate(-50%, -50%)';
+  width: 400; 
+  background-color: 'background.paper';
+  box-shadow: 24;
+  padding: 4; 
 }
 
-.image-text-overlay {
-  position: absolute;
-  width: 100%;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.7);
-  color: white;
-  padding: 10px;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  text-align: center;
-}
 
-.image-card:hover .image-text-overlay {
-  opacity: 1;
-}
-
-.image-modal .MuiBackdrop-root {
-  background-color: rgba(0, 0, 0, 0.8);
-}
-
-.modal-content-box {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: white;
-  padding: 20px;
-  border-radius: 8px;
-  outline: none;
-  display: flex;
-  gap: 20px;
-}
-
-.modal-image {
-  max-width: 50%;
-  max-height: 80vh;
-}
-
-.modal-image-params {
-  padding: 20px;
-  overflow-y: auto;
-  max-height: 80vh;
-}
-
-/* Your existing .hide-scrollbar styles */
-
-.hide-scrollbar {
-  scrollbar-width: none; /* For Firefox */
-}
-
-.hide-scrollbar::-webkit-scrollbar {
-  display: none; /* For Chrome, Safari, and Edge */
-}
-
-/* Add any additional styles you might need */
-.image-container {
-    position: relative;
-    cursor: pointer;
-  }
-  
-  .image-text {
-    display: none;
-    position: absolute;
-    bottom: 10px;
-    left: 10px;
-    background-color: rgba(0, 0, 0, 0.7);
-    color: white;
-    padding: 8px;
-    border-radius: 4px;
-  }
-  
-  .image-container:hover .image-text {
-    display: block;
-  }
-  
+/* Add more CSS for modal styling as needed */

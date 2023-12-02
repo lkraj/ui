@@ -5,77 +5,19 @@ import image1 from '../../assets/images/Image (1).jpeg';
 import image7 from '../../assets/images/Image (7).jpg';
 import image8 from '../../assets/images/Image (8).jpg';
 import image9 from '../../assets/images/Image (9).jpg';
-
+import modelData from '../FeaturedModels/modelData';
 const AllModels = () => {
-  const modelsData = [
-    {
-      image: image7,
-      heading: 'Model Name 1',
-      text: 'Model description 1'
-    },
-    {
-      image: image8,
-      heading: 'Model Name 2',
-      text: 'Model description 2'
-    },
-    {
-      image: image9,
-      heading: 'Model Name 2',
-      text: 'Model description 2'
-    },
-    {
-      image: image1,
-      heading: 'Model Name 3',
-      text: 'Model description 2'
-    },
-    {
-        image: image7,
-        heading: 'Model Name 1',
-        text: 'Model description 1'
-      },
-      {
-        image: image8,
-        heading: 'Model Name 2',
-        text: 'Model description 2'
-      },
-      {
-        image: image9,
-        heading: 'Model Name 2',
-        text: 'Model description 2'
-      },
-      {
-        image: image1,
-        heading: 'Model Name 3',
-        text: 'Model description 2'
-      }, {
-        image: image7,
-        heading: 'Model Name 1',
-        text: 'Model description 1'
-      },
-      {
-        image: image8,
-        heading: 'Model Name 2',
-        text: 'Model description 2'
-      },
-      {
-        image: image9,
-        heading: 'Model Name 2',
-        text: 'Model description 2'
-      },
-      {
-        image: image1,
-        heading: 'Model Name 3',
-        text: 'Model description 2'
-      },
-    // ... add other model data here
-  ];
-
-  const modelCards = modelsData.map((model, index) => (
+  const truncateText = (text, maxLength) => {
+    return text.length > maxLength ? text.substring(0, maxLength) + "..." : text;
+  };
+  const modelCards = modelData.map((model, index) => (
     <FeaturedModelCard 
       key={index} 
       image={model.image} 
       heading={model.heading} 
-      text={model.text} 
+      text={truncateText(model.text, 50)} // Truncate text to 100 characters (or your preferred length)
+      fullText={model.text}
+     
     />
   ));
 

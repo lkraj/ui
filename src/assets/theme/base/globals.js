@@ -26,10 +26,13 @@ export default {
     scrollBehavior: "smooth",
     background: `url(${bgAdmin})`,
     backgroundSize: "cover",
+    backgroundAttachment: 'fixed',
+    // backgroundPosition: "center center"
   },
   body: {
-    background: `url(${bgAdmin})`,
-    backgroundSize: "cover",
+    // background: `url(${bgAdmin})`,
+    // backgroundSize: "cover",
+    background:"transparent"
   },
   "*, *::before, *::after": {
     margin: 0,

@@ -1,0 +1,113 @@
+.image-card {
+  cursor: pointer;
+  /* Additional styling */
+}
+
+.feed-image {
+  width: 100%;
+  /* Additional styling */
+}
+
+.modal-left, .modal-right {
+  flex-basis: 50%; /* Each side takes up half the space */
+}
+.modal-left{
+  flex: 1;  /* Flex grow to take available space */
+  width: 50%; /* Equal width */
+  background-size: cover;
+  background-position: center;
+}
+.modal-right {
+  flex: 1;  /* Flex grow to take available space */
+  width: 50%; /* Equal width */
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;/* Center content vertically */
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(226, 200, 200, 0.914);
+  backdrop-filter: blur(5px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+.image-modal-content {
+  display: flex;
+  justify-content: center;
+  align-items: stretch; /* To ensure children containers are of equal height */
+  background-color: white; /* Modal background color */
+  border-radius: 10px; /* Rounded corners */
+ 
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Shadow for modal */
+  overflow: hidden; 
+  max-width: 1000px;
+  width: 90%;
+  height: 100vh; /* Full viewport height */
+  max-height: 80vh;
+}
+.modal-content::-webkit-scrollbar {
+  width: 12px; /* Adjust width as needed */
+}
+
+.modal-content::-webkit-scrollbar-track {
+  background: #b4b2b2;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+.modal-content::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+
+.modal-main-image {
+  width: 100%; /* Full width */
+  height: auto; /* Maintain aspect ratio */
+  max-height: 100%; /* Equal height */
+  object-fit: cover;
+  padding: 10px;
+  border-radius: 25px;
+  
+}
+/* ImageFeedCard.css or the corresponding CSS module file */
+.modal-image-card {
+  width: 230px;
+  height: 230px;
+  overflow: hidden;
+}
+
+.modal-image-card .feed-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 24px;
+  
+  z-index: 1002;
+}
+.no-scroll {
+  overflow: hidden;
+}
+.modal-content {
+  /* background-color: transparent;  */
+  /* Remove the purple background */
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+}
