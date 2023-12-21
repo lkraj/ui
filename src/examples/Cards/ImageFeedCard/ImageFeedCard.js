@@ -3,17 +3,28 @@ import { Modal, Box } from '@mui/material';
 import VuiTypography from "components/VuiTypography";
 import './ImageFeedCard.css'; // Ensure this CSS file exists and is correctly styled
 import VuiBox from "components/VuiBox";
-
-const ImageFeedCard = ({image, customClass = "" }) => {
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'; // For the outlined heart
+import FavoriteIcon from '@mui/icons-material/Favorite';
+const ImageFeedCard = ({image}) => {
   const [isOpen, setIsOpen] = useState(false);
-
+  const [liked, setLiked] = useState(false);
   const handleOpen = () => setIsOpen(true);
   const handleClose = () => setIsOpen(false);
-
+  const toggleLike = (event) => {
+    event.stopPropagation();
+    setLiked(!liked);
+  };
   return (
     <>
-      <VuiBox className={`image-card ${customClass}`} onClick={handleOpen}>
-        <img src={image.src} alt={image.alt} className="feed-image" />
+      <VuiBox onClick={handleOpen} className={`image-card-overlay ${disableOverlay ? 'no-overlay' : ''}`}>
+      <img src={image.src} alt={image.alt} className="feed-image" />
+      {!disableOverlay && (<div className="overlay-content">
+        <button className="like-button" onClick={toggleLike}>
+          {liked ? <FavoriteIcon style={{ color: 'red' }} /> : <FavoriteBorderIcon />}
+        </button>
+        <p className="truncated-text">Some short text...</p>
+      </div>
+      )}
       </VuiBox>
 
       {isOpen && (

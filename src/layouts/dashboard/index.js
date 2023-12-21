@@ -68,7 +68,7 @@ function Dashboard() {
   return (
     <DashboardLayout>
       <DashboardNavbar />
-      <VuiBox mb={3}>
+      <VuiBox mb={2}>
           <Grid container spacing="18px">
             <FeaturedModels/>
           </Grid>

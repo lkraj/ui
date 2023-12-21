@@ -18,27 +18,27 @@ const modelData = [
   },
   {
     image: image7,
-    heading: 'Leonardo Diffusion XL',
+    heading: 'three',
     text: 'The next phase of the core Leonardo model. Stunning outputs, even with short prompts.'
   },
   {
     image: image7,
-    heading: 'Leonardo Diffusion XL',
+    heading: 'four L',
     text: 'The next phase of the core Leonardo model. Stunning outputs, even with short prompts.'
   },
   {
     image: image7,
-    heading: 'Leonardo Diffusion XL',
+    heading: 'five',
     text: 'The next phase of the core Leonardo model. Stunning outputs, even with short prompts.'
   },
   {
     image: image7,
-    heading: 'Leonardo Diffusion XL',
+    heading: 'six',
     text: 'The next phase of the core Leonardo model. Stunning outputs, even with short prompts.'
   },
   {
     image: image7,
-    heading: 'Leonardo Diffusion XL',
+    heading: 'seven',
     text: 'The next phase of the core Leonardo model. Stunning outputs, even with short prompts.'
   },
   // ... other model data

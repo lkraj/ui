@@ -5,18 +5,22 @@
   
  
 }
+.card{
+  backdrop-filter: "none";
+  box-sizing: border-box;
+}
 .modal {
-  position: fixed;
+  position: fixed; /* changed from absolute to fixed to ensure it covers the entire screen */
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(226, 226, 226, 0.914);
-  backdrop-filter: blur(5px);
+  width: 100vw; /* 100% of the viewport width */
+  height: 100vh; /* 100% of the viewport height */
+  background-color: rgba(0, 0, 0, 0.5); /* semi-transparent background */
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 2000;
+  
 }
 
 .modal-content {
@@ -26,7 +30,8 @@
   max-width: 1000px;
   width: 90%;
   position: relative;
-  z-index: 1001;
+  
+  z-index: 2001;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -35,14 +40,6 @@
   overflow-y: auto; /* Enable vertical scrolling */
   scrollbar-width: thin; /* For Firefox */
   overflow-x: hidden;
-}
-.modal-inner-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: calc(100vh - 40px); /* Subtracting the padding from the total height */
-  overflow-y: auto;
-  scrollbar-width: thin;
 }
 
 .modal-content::-webkit-scrollbar {
@@ -66,10 +63,10 @@
 }
 
 .modal-top {
-  height: calc(50vh - 11px);
+  /* height: 50%; */
   display: flex;
    /* Allow content to wrap onto the next line on smaller screens */
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   
 }
@@ -84,42 +81,15 @@
    /* Hide any overflowing content */
  
 }
-/* 
-.model-header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-}
 
-.model-logo {
-  background-color: purple;
-  color: #fff;
-  padding: 10px;
-  border-radius: 50%;
-  margin-right: 15px;
-  font-size: 1.5em;
-}
-
-.model-name {
-  font-size: 1.5em;
-  margin-right: 10px;
-}
-
-.model-tag {
-  background-color: #c8afcf;
-  color: #fff;
-  padding: 5px 10px;
-  border-radius: 5px;
-  font-size: 0.8em;
-} */
 
 .image-caption {
   display: inline-block;
   flex-direction: column;
   flex-wrap: wrap;
-  align-items: flex-start;
-  margin-left: 30px;
+  align-items: center;
+  /* margin: 550px; */
+  padding: 50px;
  
   
 }
@@ -141,12 +111,6 @@
   margin-top: 10px;
 }
 
-.image-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 10px;
-  margin-top: 20px;
-}
 
 .view-more-btn {
   background-color: transparent;
@@ -167,13 +131,19 @@
   display: block;
   border-radius: 8px;
 }
+.parent-container {
+  display: flex;
+  justify-content: center; /* Horizontally center the content */
+  align-items: center; /* Vertically center the content, if needed */
+}
 .gradient-text {
   font-size: 14px; /* or any size you prefer */
   background: linear-gradient(90deg, purple, pink);
   -webkit-background-clip: text;
+  text-align: center;
   background-clip: text;
   color: transparent;
-  display: inline; /* this ensures that the gradient only spans the width of the text */
+  display: inline-block; /* This will help in centering the text while keeping the gradient to the text */
 }
 .model-images-heading {
   font-size: 0.7em;        /* Adjust font size as needed */       /* Add spacing above the heading */
@@ -198,25 +168,14 @@
   grid-template-columns: repeat(4, 1fr);
   gap: 10px;
 } */
-.modal-image-feed-card .image-card {
-  width: 230px;
-  height: 230px;
-  /* Add any additional styling needed for the square appearance */
-}
 
-.image-item {
-  width: 230px;
-  height: 230px;
-  overflow: hidden;
-}
 
-.image-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 8px;
-}
 
+ .modal-image-card:after {
+   content: "";
+   display: block;
+   padding-bottom: 100%;
+ }
 .close {
   position: absolute;
   top: 10px;
@@ -241,19 +200,24 @@
   max-width: 400px; /* Set a maximum width for the text content */
 }
 
+
 /* Responsive styles for smaller devices */
 
 @media (max-width: 768px) {
 
   .modal-content {
     width: 95%;
+    flex-direction: column;
   }
 
   .modal-top {
     flex-direction: column;
     align-items: center;
   }
-
+  .modal-top, .modal-bottom {
+    min-height: unset; /* Allow the height to be determined by content */
+    height: auto; /* Let the height grow as needed */
+  }
   .modal-image, .image-caption {
     width: 100%;
   }
@@ -267,11 +231,57 @@
     justify-content: center;
   }
 
-  .image-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+  
 
   .model-logo, .model-name, .model-tag {
     margin-bottom: 10px; /* Add some space for vertical layout */
+  }
+}
+
+.grid-container {
+  
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(175px, 1fr)); /* This will create as many columns as can fit at least 250px wide */
+  grid-gap: 0.75rem; /* To define the gap between rows/columns */
+  gap: 0.75rem;
+  padding: 0.75rem; /* Space between grid items */
+}
+
+.grid-item {
+  display: flex;
+  width: 100%; /* This will be relative to your grid's column width */
+  overflow: hidden;
+
+}
+
+.grid-item img {
+  aspect-ratio: 1 / 1; /* Ensures the item is always square */
+  
+  height: auto;
+  object-fit: cover; /* Will cover the square area, cropping the image if necessary */
+  object-position: center; /* Centers the image within the element */
+}
+
+
+
+/* Clears the float */
+
+
+
+@media (max-width: 480px) {
+  .grid-container {
+    grid-template-columns:repeat(auto-fill, minmax(135px, 1fr)); 
+    grid-gap: 0.25rem; /* To define the gap between rows/columns */
+    gap: 0.25rem;
+    padding: 0.25rem; /* even smaller gap for very small screens */
+  }
+}
+@media (max-width: 356px) {
+  .grid-container {
+    
+    grid-template-columns:repeat(auto-fit, minmax(142px, 1fr)); 
+    grid-gap: 0.25rem; /* To define the gap between rows/columns */
+    gap: 0.25rem;
+    padding: 0.25rem; /* even smaller gap for very small screens */
   }
 }

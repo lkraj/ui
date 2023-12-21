@@ -24,25 +24,26 @@ export default styled(Switch)(({ theme, ownerState }) => {
   const { palette } = theme;
   const { color } = ownerState;
   const { white, secondary } = palette;
-
+  // const size = pxToRem(38);
   // styles for the button with variant="contained"
   const containedStyles = () => {
     // background color value
-    const backgroundValue = palette[color] ? palette[color].main : white.main;
+    
 
     // color value when button is focused
 
     return {
+      
       "&.MuiSwitch-root": {
         "& .MuiSwitch-thumb": {
-          backgroundColor: white.main,
+          backgroundColor: "#e1eedc",
         },
         "& .MuiSwitch-track": {
           backgroundColor: `${secondary.main} !important`,
           borderColor: "transparent",
         },
         "& .Mui-checked+.MuiSwitch-track": {
-          backgroundColor: `${backgroundValue} !important`,
+          backgroundColor: `${secondary.main} !important`,
         },
       },
     };

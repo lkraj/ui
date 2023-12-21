@@ -43,6 +43,7 @@ import Dashboard from "layouts/dashboard";
 import Feed from "layouts/feed";
 // import RTL from "layouts/rtl";
 import ImgGeneration from "layouts/Image Generation";
+import ImageEditor from "layouts/Image Editor";
 import Profile from "layouts/profile";
 import SignIn from "layouts/authentication/sign-in";
 import SignUp from "layouts/authentication/sign-up";
@@ -95,6 +96,15 @@ const routes = [
     route: "/Image Generation",
     icon: <RiAiGenerate size="15px" color="inherit" />,
     component: ImgGeneration,
+    noCollapse: true,
+  },
+  {
+    type: "collapse",
+    name: "Image Editor",
+    key: "Image Editor",
+    route: "/Image Editor",
+    icon: <RiAiGenerate size="15px" color="inherit" />,
+    component: ImageEditor,
     noCollapse: true,
   },
   { type: "title", title: "Account Pages", key: "account-pages" },

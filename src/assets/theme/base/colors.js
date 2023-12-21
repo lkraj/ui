@@ -31,6 +31,7 @@ export default {
     button: "#f0edd8",
   },
 
+  
   text: {
     main: "#000000",
     focus: "#000000",
@@ -82,11 +83,13 @@ export default {
     300: "#cbd5e0",
     400: "#a0aec0",
     500: "#718096",
-    600: "#4a5568",
+    600: "#9d97d1",
     700: "#2d3748",
     800: "#1a202a",
     900: "#171923",
   },
+
+
 
   borderCol: {
     main: "#56577a",
@@ -423,9 +426,9 @@ export default {
   },
 
   inputColors: {
-    backgroundColor: "transparent",
-    borderColor: { main: "rgba(226, 232, 240, 0.3)", focus: "rgba(226, 232, 240, 0.6)" },
-    boxShadow: "#628fc2",
+    backgroundColor: "#eddbc7",
+    borderColor: { main: "rgb(174,142,204,0.3)", focus: "rgb(174,142,204, 0.6)" },
+    boxShadow: "#ae8ecc",
     error: "#fd5c70",
     success: "#66d432",
   },

@@ -163,7 +163,7 @@ export default styled(InputBase)(({ theme, ownerState }) => {
     backgroundColor: `${disabled ? grey[600] : inputColors.backgroundColor} !important`,
     color: `${white.main} !important`,
     borderRadius: borderRadius.lg,
-    border: `0.5px solid ${grey[600]}`,
+    border: `2px solid ${grey[600]}`,
     ...(size === "small" && smallStyles()),
     ...(size === "medium" && mediumStyles()),
     ...(size === "large" && largeStyles()),

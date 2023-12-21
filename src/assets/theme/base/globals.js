@@ -19,15 +19,25 @@
 // Vision UI Dashboard React Base Styles
 import colors from "assets/theme/base/colors";
 import bgAdmin from "assets/images/body-background-w2.jpg";
+import bgAdminMobile from "assets/images/hi.jpg"; // Add a mobile version of the background
+
 
 const { info, dark } = colors;
 export default {
   html: {
     scrollBehavior: "smooth",
     background: `url(${bgAdmin})`,
+    backgroundAttachment: "fixed",
     backgroundSize: "cover",
-    backgroundAttachment: 'fixed',
     // backgroundPosition: "center center"
+    "@media (max-width: 768px)": { // For tablets and smaller devices
+      background: `url(${bgAdminMobile})` ,// Use a different background for smaller screens
+      // backgroundAttachment: "fixed",
+      // backgroundSize: "cover",
+      backgroundSize: "100% 100%",
+      backgroundRepeat: "no-repeat",
+    
+    }
   },
   body: {
     // background: `url(${bgAdmin})`,
@@ -42,7 +52,7 @@ export default {
     textDecoration: "none !important",
   },
   "a.link, .link, a.link:link, .link:link, a.link:visited, .link:visited": {
-    color: `${dark.main} !important`,
+    color: `${info.main} !important`,
     transition: "color 150ms ease-in !important",
   },
   "a.link:hover, .link:hover, a.link:focus, .link:focus": {

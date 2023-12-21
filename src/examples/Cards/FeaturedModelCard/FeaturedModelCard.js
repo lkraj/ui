@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Card } from "@mui/material";
+import { Card, Modal, Grid, Icon } from "@mui/material";
 import VuiBox from "components/VuiBox";
 import VuiTypography from "components/VuiTypography";
 import VuiButton from "components/VuiButton";
@@ -7,6 +7,8 @@ import './FeaturedModelCard.css';
 import ImageFeedCard from '../ImageFeedCard/ImageFeedCard';
 import colors from "assets/theme/base/colors.js";
 import Divider from "@mui/material/Divider";
+import Masonry from 'react-masonry-css';
+
 import {
   useVisionUIController
 } from "context";
@@ -15,7 +17,20 @@ import image7 from '../../../assets/images/Image (7).jpg';
 const FeaturedModelCard = ({ image, heading, text, fullText }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [controller, dispatch] = useVisionUIController();
+  const getGridListCols = () => {
+  if (window.innerWidth >= 1100) {
+    return 4;
+  }
+  if (window.innerWidth >= 768) {
+    return 3;
+  }
+  return 2; // For smaller devices
+};
   const generatedImages = [
+    { src: image1, alt: 'Image 1' },
+    { src: image7, alt: 'Image 1' },
+    { src: image1, alt: 'Image 1' },
+    { src: image7, alt: 'Image 1' },
     { src: image1, alt: 'Image 1' },
     { src: image7, alt: 'Image 1' },
     { src: image1, alt: 'Image 1' },
@@ -25,17 +40,38 @@ const FeaturedModelCard = ({ image, heading, text, fullText }) => {
     
     // ... add paths to other local images
   ];
-
+  const breakpointColumnsObj = {
+    default: 4,
+    1680:4,
+    1440:4,
+    
+    1100: 4,
+    900:3,
+    768:3,
+    700: 3,
+    650:2,
+    500: 2,
+    425:2,
+    375:2
+  };
+  const displayedImages = generatedImages.slice(0, 12);
   const handleOpen = () => setIsOpen(true);
   const handleClose = () => setIsOpen(false);
   return (
-    <div>
+    <VuiBox>
       <Card 
         onClick={handleOpen}
         sx={{
+         
           height: "280px",
-          width:"280px",
-          margin: "0 10px 20px 10px",
+          width: {
+            xs: '95%', // full width on extra-small screens
+            sm: '95%', // half width on small screens
+            md: '95%', // third width on medium screens
+            lg: '95%', // quarter width on large screens
+            xl: '95%', // one fifth width on extra-large screens
+          },
+          margin: "0 10px 10px 10px",
         }}
         className='card'
       >
@@ -54,21 +90,19 @@ const FeaturedModelCard = ({ image, heading, text, fullText }) => {
         </VuiBox>
       </Card>
 
-      {isOpen && (
-        <VuiBox sx = {({ palette: { gradients }, functions: { linearGradient } }) => ({
-          backgroundColor: linearGradient(
-            gradients.navbar.main,
-            gradients.navbar.state,
-            gradients.navbar.deg
-          )})}>
+    
+        <Modal
+        open={isOpen}
+        onClose={handleClose}
+      >
           <VuiBox className="modal" onClick={handleClose}>
-            <div className="modal-content" onClick={e => e.stopPropagation()}>
+          <Grid container  className="modal-content" onClick={e => e.stopPropagation()}>
               
               <VuiBox className="modal-top"  >
-                <VuiBox className="modal-image">
+              <Grid item xs={12} md={6} className="modal-image">
                   <img src={image} alt={heading} />
-                </VuiBox>
-                <VuiBox className="image-caption">
+                </Grid>
+                <Grid item xs={12} md={6} className="image-caption">
                   
                 <VuiTypography
                       variant="h3"
@@ -87,31 +121,50 @@ const FeaturedModelCard = ({ image, heading, text, fullText }) => {
                   <VuiButton  sx = {({ palette: { gradients }, functions: { linearGradient } }) => ({
           background: linearGradient("#e4bebc", "#9d97d1", 137)
           })}>Generate with this Model</VuiButton>
-                </VuiBox>
+                </Grid>
               </VuiBox>
- 
-              <h3 className= "gradient-text">Images created using this model</h3>
-              <div className="modal-bottom">
-                <div className="image-grid">
-                  {generatedImages.map((imgSrc, index) => (
-                    
-                    <ImageFeedCard
-                    key={index}
-                    image={imgSrc}
-                    customClass="modal-image-card"
-                  />
-                  ))}
-                </div>
-                <VuiButton className="view-more-btn">View More</VuiButton>
-              </div>
+              
+             <Grid mt={3} item xs={12}>
+              <div mb={3} className="parent-container"><h3 className="gradient-text">Images created using this model</h3></div>
+             
+          <VuiBox className="grid-container">
+  {generatedImages.map((imgSrc, index) => (
+    <div key={index} className="grid-item">
+      
+      <ImageFeedCard
+        image={imgSrc}
+        disableOverlay={true}
+        customClass="modal-image-card"
+      />
+    </div>
+  ))}
+</VuiBox>
 
+<div className="parent-container">
+<VuiButton  sx = {({ palette: { gradients }, functions: { linearGradient } }) => ({
+          background: linearGradient("#e4bebc", "#9d97d1", 137),
+          alignItems: "center",
+              justifySelf: "flex-end",
+              cursor: "pointer",
+
+              "& .material-icons-round": {
+                fontSize: "1.125rem",
+                transform: `translate(2px, -0.5px)`,
+                transition: "transform 0.2s cubic-bezier(0.34,1.61,0.7,1.3)",
+              },
+
+              "&:hover .material-icons-round, &:focus  .material-icons-round": {
+                transform: `translate(6px, -0.5px)`,
+              },
+          })}>View More<Icon sx={{ fontWeight: "bold", ml: "5px" }}>arrow_forward</Icon></VuiButton>
+       </div> </Grid>
               <span className="close" onClick={handleClose}>&times;</span>
 
-            </div>
+            </Grid>
           </VuiBox>
-        </VuiBox>
-      )}
-    </div>
+       
+      </Modal>
+    </VuiBox>
   );
 };
 
